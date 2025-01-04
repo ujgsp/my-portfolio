@@ -1,0 +1,69 @@
+{{ define "main" }}
+<div class="mb-5">
+    <div class="mb-3">
+        <div class="rounded bg-gradient-pride">&nbsp;</div>
+    </div>
+
+    <h4 class="text-dark fw-medium fs-3">Cah Jenggot</h4>
+    <h2 class="text-secondary fw-medium fs-5">Web Developer</h2>
+</div>
+
+<div class="mb-5">
+    <p class="">
+        I'm currently working at 2media/CLARK as a full stack developer where I help develop and maintain our
+        customer-facing and internal applications written in Laravel, Vue.js, Tailwind CSS and Laravel Livewire.
+    </p>
+    <p class="">
+        I regularly try to contribute to the open source community by writing guides on how to automate tasks or by
+        releasing PHP packages to solve a particular problem.
+    </p>
+    <p class="">
+        On this personal website I write about how I solve problems in my personal or professional projects, how I set
+        up my favourite apps or on how to apply minimalism to the digital world.
+    </p>
+</div>
+
+<div class="mb-5">
+    <h4 class="text-body-emphasis mb-4">On the web</h4>
+    <a href="#!" class="link-underline text-dark me-3">GitHub</a>
+    <a href="#!" class="link-underline text-dark me-3">LinkedIn</a>
+    <a href="#!" class="link-underline text-dark me-3">Email</a>
+
+</div>
+
+<hr class="col-3 col-md-2 mb-5">
+<h4 class="text-body-emphasis mb-4">Tulisan Terpilih</h4>
+<ul class="list-unstyled mb-0 mb-5">
+    {{ range (where .Site.RegularPages "Section" "posts") }}
+    <li class="d-flex align-items-center mb-2">
+        <span class="text-muted me-4 w-20">{{ .Date.Format "01/2006" }}</span>
+        <a href="{{ .RelPermalink }}" class="link-underline text-dark text-truncate flex-grow-1">
+            {{ .LinkTitle }}
+        </a>
+    </li>
+    {{ end }}
+</ul>
+
+<hr class="col-3 col-md-2 mb-5">
+<h4 class="text-body-emphasis mb-4">Proyek Terpilih</h4>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    {{ range (where .Site.RegularPages "Section" "projects") }}
+    <div class="col">
+        <a href="{{ .Permalink }}" class="text-decoration-none text-dark">
+            <div class="card border-0 shadow-sm">
+                <img src="{{ with .Resources.GetMatch .Params.thumbnail }}{{ .RelPermalink }}{{ else }}{{ .Params.thumbnail }}{{ end }}"
+                    alt="Image representing {{ .Title }}" class="card-img-top">
+                <div class="card-body">
+                    <h6 class="card-title">{{ .Title }}</h6>
+                    <p class="card-text text-muted">{{ .Params.description }}</p>
+                </div>
+            </div>
+        </a>
+    </div>
+    {{ end }}
+    <!-- Tambahkan proyek lainnya di sini -->
+
+</div>
+
+
+{{ end }}
