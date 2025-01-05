@@ -1,0 +1,21 @@
+{
+	"baseURL": "http://localhost:1313/",
+	"languageCode": "en-us",
+	"title": "Your Website",
+	"theme": "simple",
+	"markup": {
+		"highlight": {
+			"codeFences": true,
+			"guessSyntax": true,
+			"hl_Lines": ""
+		}
+	},
+	"params": {
+		"social": {
+			"github": "https://github.com/username",
+			"linkedin": "https://www.linkedin.com/in/username/",
+			"email": "mailto:alamat@email.com",
+			"facebook" : "#!"
+		}
+	}
+}

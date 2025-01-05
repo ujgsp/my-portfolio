@@ -1,0 +1,23 @@
+{{ define "main" }}
+<div class="listContentDefault">
+	<h1>{{ .Title }}</h1>
+
+	<!-- Deskripsi _index.md -->
+	<p>{{ .Content }}</p>
+
+	<!-- Kelompokan list post berdasarkan tahun -->
+	{{ range .Pages.GroupByDate "2006" }}
+	<h6 class="text-body-emphasis">{{ .Key }}</h6>
+	<ul class="list-unstyled mb-0 mb-5">
+		{{ range .Pages }}
+		<li class="d-flex align-items-center mb-2">
+			<span class="text-muted me-4 w-20">{{ .Date.Format "02/01/2006" }}</span>
+			<a href="{{ .RelPermalink }}" class="link-underline text-dark text-truncate flex-grow-1">
+				{{ .Title }}
+			</a>
+		</li>
+		{{ end }}
+	</ul>
+	{{ end }}
+</div>
+{{ end }}
