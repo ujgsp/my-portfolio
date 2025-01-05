@@ -1,3 +1,5 @@
+<script src="{{ "/js/bootstrap.bundle.min.js" | relURL }}"></script>
+
 {{- with resources.Get "js/main.js" }}
   {{- if eq hugo.Environment "development" }}
     {{- with . | js.Build }}
