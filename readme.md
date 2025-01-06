@@ -1,19 +1,14 @@
-### Belajar Hugo SSG dengan Bootstrap
+### Belajar membuat Website Portfolio menggunakan Hugo Static Site Generators dengan layout Bootstrap
 ---
 
-### Membuat content untuk project baru
-```
-hugo new --kind project projects/my-new-project/index.md
-```
-Ini akan menghasilkan file project baru di <code>content/projects/my-new-project</code>
-Note: untuk content project menggunakan "Page bundles"
+Repositori ini tahap pembelajaran menggunakan hugo dengan membuat tema custom sendiri
 
-### Styling css:
-
-- [x] Homepage
-- [x] Single Page Default
-  - [x] Element heading css
-- [x] list Page Default
-- [x] Single Page Project
-- [x] List Page Project
-  - [x] Deskripsi pada card
+TODO LIST
+- [x] Fitur post dan project
+- [x] Bio
+- [x] Sosial media
+- [x] Tentang
+- [x] Artikel
+- [x] Proyek
+- [ ] 404 page not found
+- [ ] Meta Tag
