@@ -1,0 +1,23 @@
+/* Global */
+.content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Start Banner Area */
+.bannerArea div.border-dashed{
+    --bs-border-style: dashed;
+}
+
+.bannerArea {
+    background-color: #f0f0f0;
+}
+
+img.rounded-circle {
+    width: 150px; /* Ukuran foto */
+    height: 150px; /* Menjaga proporsi lingkaran */
+    object-fit: cover; /* Menjaga fokus pada bagian tengah foto */
+}
+/* End Banner Area */
