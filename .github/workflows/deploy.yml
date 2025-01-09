@@ -1,0 +1,34 @@
+name: Deploy Hugo to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # Hanya berjalan jika ada perubahan di branch "main"
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout source code dari repository my-portfolio
+      - name: Checkout Source Code
+        uses: actions/checkout@v3
+
+      # Install Hugo CLI
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: "latest"
+
+      # Build Hugo
+      - name: Build Hugo Site
+        run: hugo --minify
+
+      # Deploy hasil build ke repository ujgsp.github.io
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          external_repository: ujgsp/ujgsp.github.io
+          publish_branch: main
+          publish_dir: public
