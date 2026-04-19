@@ -18,6 +18,9 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      PUBLIC_CLOUDINARY_CLOUD_NAME: dellp9a4z
+      PUBLIC_TURNSTILE_SITE_KEY: 1x00000000000000000000AA
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
