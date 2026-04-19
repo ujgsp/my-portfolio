@@ -1,7 +1,7 @@
 ---
 title: Privacy Policy
 description: >-
-  Learn how Daniel Adrian's website collects, uses, and protects your personal
+  Learn how Ujang Sopiyan's website collects, uses, and protects your personal
   information.
 lastUpdated: 2025-08-01T03:24:00.000Z
 ogImage:

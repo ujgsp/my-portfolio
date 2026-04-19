@@ -2,7 +2,7 @@
 draft: false
 featured: none
 authors:
-  - Daniel Adrian
+  - Ujang Sopiyan
 title: How to Build Trust with Content
 description: >-
   If your content isn't getting sales, you're likely missing the right mix of

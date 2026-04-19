@@ -1,7 +1,7 @@
 ---
 draft: false
 title: Terms of Service
-description: Read the terms and conditions for using Daniel Adrian's website and services.
+description: Read the terms and conditions for using Ujang Sopiyan's website and services.
 lastUpdated: 2025-08-01T03:20:00.000Z
 ogImage:
   src: >-
