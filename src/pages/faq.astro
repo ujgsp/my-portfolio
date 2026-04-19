@@ -1,0 +1,77 @@
+---
+import Container from "../components/layouts/Container.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const faqs = [
+  {
+    question: "Berapa lama waktu pembuatan website?",
+    answer: "Waktu pembuatan bervariasi tegantung pada kompleksitas fitur dan skala proyek. Umumnya, website sederhana bisa memakan waktu 1-2 minggu, sementara sistem kustom bisa membutuhkan 1 bulan atau lebih.",
+  },
+  {
+    question: "Apakah sistemnya akan responsif dan bisa diakses lewat HP?",
+    answer: "Tentu! Saya selalu merancang antarmuka (UI) web dengan konsep Mobile-First, sehingga tampilan akan rapi dan nyaman digunakan di berbagai perangkat (desktop, tablet, hp).",
+  },
+  {
+    question: "Apakah menggunakan template atau custom code?",
+    answer: "Saya bisa menyediakan keduanya. Untuk pengerjaan cepat dan anggaran tertentu, saya bisa menggunakan Wordpress + Elementor. Untuk sistem kompleks dengan reabilitas tinggi, saya menggunakan Laravel atau CodeIgniter untuk pengembangan backend.",
+  },
+  {
+    question: "Apakah Anda juga melayani support/maintenance setelah project selesai?",
+    answer: "Tentu, saya memberikan garansi gratis perbaikan (bug fixing) untuk periode tertentu setelah perilisan. Layanan maintenance lanjutan juga bisa dinegosiasikan.",
+  },
+];
+---
+
+<BaseLayout
+  title="FAQ"
+  description="Pertanyaan yang sering diajukan."
+>
+  <Container class="py-12 space-y-12">
+    <div class="space-y-4">
+      <h1 class="text-4xl font-bold tracking-tight">FAQ</h1>
+      <p class="text-xl text-neutral-500 dark:text-neutral-400">
+        Pertanyaan yang sering diajukan seputar layanan pengembangan web.
+      </p>
+    </div>
+
+    <div class="max-w-3xl divide-y divide-neutral-200 dark:divide-neutral-800">
+      {
+        faqs.map((faq) => (
+          <details class="group py-6 [&_summary::-webkit-details-marker]:hidden">
+            <summary class="flex cursor-pointer items-center justify-between text-neutral-900 dark:text-neutral-100">
+              <h2 class="text-lg font-medium">{faq.question}</h2>
+              <span class="relative ml-4 size-5 shrink-0">
+                <svg
+                  class="absolute inset-0 size-5 opacity-100 transition-opacity group-open:opacity-0"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 12h14" />
+                  <path d="M12 5v14" />
+                </svg>
+                <svg
+                  class="absolute inset-0 size-5 opacity-0 transition-opacity group-open:opacity-100 text-brand-500 dark:text-brand-400"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 12h14" />
+                </svg>
+              </span>
+            </summary>
+            <p class="mt-4 text-neutral-600 dark:text-neutral-400 leading-relaxed">
+              {faq.answer}
+            </p>
+          </details>
+        ))
+      }
+    </div>
+  </Container>
+</BaseLayout>
