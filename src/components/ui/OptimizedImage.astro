@@ -47,14 +47,26 @@ const lqipUrl = isCloudinaryUrl(src) ? lqip(src) : undefined;
         )
     }
 
-    <CldImage
-        src={src}
-        alt={alt}
-        class={cn("absolute inset-0 h-full w-full object-cover", imageClass)}
-        loading={loading}
-        fetchpriority={fetchPriorityVal}
-        format="auto"
-        quality="auto"
-        {...rest}
-    />
+    {
+        isCloudinaryUrl(src) ? (
+            <CldImage
+                src={src}
+                alt={alt}
+                class={cn("absolute inset-0 h-full w-full object-cover", imageClass)}
+                loading={loading}
+                fetchpriority={fetchPriorityVal}
+                format="auto"
+                quality="auto"
+                {...rest}
+            />
+        ) : (
+            <img
+                src={src}
+                alt={alt}
+                class={cn("absolute inset-0 h-full w-full object-cover", imageClass)}
+                loading={loading}
+                {...rest}
+            />
+        )
+    }
 </div>

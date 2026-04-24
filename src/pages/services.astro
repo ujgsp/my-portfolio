@@ -1,84 +1,15 @@
 ---
-import Container from "../components/layouts/Container.astro";
-import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import ListLayout from "../layouts/ListLayout.astro";
+import { attachMeta } from "../utils/meta";
 
-const services = [
-  {
-    title: "Web Development",
-    description:
-      "Pengembangan aplikasi web responsif dan scalable dengan teknologi modern seperti Laravel, CodeIgniter, React, dan Astro.",
-    icon: "lucide:code",
-  },
-  {
-    title: "CMS & Wordpress",
-    description:
-      "Pembuatan website toko online, company profile, dan landing page menggunakan Wordpress dan Elementor.",
-    icon: "lucide:layout-template",
-  },
-  {
-    title: "API Development",
-    description:
-      "Perancangan dan implementasi RESTful API yang aman dan cepat untuk integrasi sistem Anda.",
-    icon: "lucide:server",
-  },
-];
+const services = (await getCollection("services", ({ data }) => !data.draft))
+    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+    .map((s) => attachMeta(s));
 ---
 
-<BaseLayout
-  title="Services"
-  description="Layanan yang saya tawarkan."
->
-  <Container class="py-12 space-y-12">
-    <div class="space-y-4">
-      <h1 class="text-4xl font-bold tracking-tight">Services</h1>
-      <p class="text-xl text-neutral-500 dark:text-neutral-400">
-        Solusi teknologi yang saya tawarkan untuk membantu bisnis Anda berkembang.
-      </p>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {
-        services.map((service) => (
-          <div class="group relative flex flex-col items-start space-y-4 rounded-2xl border border-neutral-200 dark:border-neutral-800 p-8 transition-colors duration-300 hover:bg-neutral-50 dark:hover:bg-neutral-800/50">
-            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 transition-transform duration-300 group-hover:scale-110 group-hover:bg-neutral-200 dark:group-hover:bg-neutral-700">
-                <svg
-                class="size-6"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                >
-                {service.icon === "lucide:code" && (
-                  <path d="m18 16 4-4-4-4" />
-                  <path d="m6 8-4 4 4 4" />
-                  <path d="m14.5 4-5 16" />
-                )}
-                {service.icon === "lucide:layout-template" && (
-                  <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
-                  <path d="M3 9h18" />
-                  <path d="M9 21V9" />
-                )}
-                {service.icon === "lucide:server" && (
-                  <rect width="20" height="8" x="2" y="2" rx="2" ry="2" />
-                  <rect width="20" height="8" x="2" y="14" rx="2" ry="2" />
-                  <line x1="6" x2="6.01" y1="6" y2="6" />
-                  <line x1="6" x2="6.01" y1="18" y2="18" />
-                )}
-                </svg>
-            </div>
-            <div class="space-y-2">
-              <h3 class="text-xl font-semibold text-neutral-900 dark:text-neutral-100">
-                {service.title}
-              </h3>
-              <p class="text-neutral-500 dark:text-neutral-400">
-                {service.description}
-              </p>
-            </div>
-          </div>
-        ))
-      }
-    </div>
-  </Container>
-</BaseLayout>
+<ListLayout
+    title="Services"
+    description="Layanan teknis profesional yang difokuskan pada deployment dan automasi sistem."
+    entries={services}
+/>

@@ -11,7 +11,7 @@ const featuredSchema = z
   });
 
 const imageSchema = z.object({
-  src: z.string().url(),
+  src: z.string(),
   alt: z.string().optional(),
 });
 
@@ -81,10 +81,19 @@ const about = defineCollection({
   }),
 });
 
+const services = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/services" }),
+  schema: baseSchema.extend({
+    license: reference("licenses").optional(),
+    icon: z.string().optional(),
+  }),
+});
+
 export const collections = {
   licenses,
   blog,
   projects,
   legal,
   about,
+  services,
 };

@@ -41,13 +41,12 @@ kbd {
 }
 
 @media (min-width: 1540px) {
+
     #scroll-to-top-button,
     #open-toc-button {
-        right: clamp(
-            1.5rem,
-            calc((100vw - 72rem) / 2),
-            calc((100vw - 1496px) / 2)
-        );
+        right: clamp(1.5rem,
+                calc((100vw - 72rem) / 2),
+                calc((100vw - 1496px) / 2));
     }
 }
 
@@ -146,18 +145,22 @@ img.no-zoom {
     @apply rounded-md bg-blue-500/30 px-1 py-0.5 text-blue-900 dark:bg-yellow-400/30 dark:text-yellow-100;
 }
 
+.prose img {
+    @apply mx-auto block rounded-xl border border-neutral-200 dark:border-neutral-700;
+}
+
 /* TOC styling */
 /* Active link styling */
-.toc-item-wrapper.is-active > a {
+.toc-item-wrapper.is-active>a {
     @apply font-semibold text-blue-600 dark:text-yellow-400;
 }
 
 /* Read link styling */
-.toc-item-wrapper.is-read > a {
+.toc-item-wrapper.is-read>a {
     @apply text-gray-500 dark:text-neutral-400;
 }
 
-.toc-item-wrapper.is-read > a:hover {
+.toc-item-wrapper.is-read>a:hover {
     @apply text-blue-500 dark:text-yellow-400;
 }
 
@@ -176,6 +179,7 @@ img.no-zoom {
 .toc-item-wrapper[data-depth="2"] {
     @apply mb-1 rounded-lg;
 }
+
 .toc-item-wrapper[data-depth="3"] {
     @apply mx-4 rounded-md;
 }

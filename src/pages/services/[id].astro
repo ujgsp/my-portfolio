@@ -1,0 +1,18 @@
+---
+import { getCollection } from "astro:content";
+import PostLayout from "../../layouts/PostLayout.astro";
+import { attachMeta } from "../../utils/meta";
+
+export async function getStaticPaths() {
+    const services = await getCollection("services", ({ data }) => !data.draft);
+
+    return services.map((service) => ({
+        params: { id: service.id },
+        props: { service: attachMeta(service) },
+    }));
+}
+
+const { service } = Astro.props;
+---
+
+<PostLayout entry={service} />
