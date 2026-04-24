@@ -76,7 +76,7 @@ const repoUrl = "repoUrl" in data ? data.repoUrl : undefined;
                 readingTimeText && (
                     <>
                         <span>&middot;</span>
-                        <span>{readingTimeText}</span>
+                        <span>{readingTimeText.replace("min read", "menit baca")}</span>
                     </>
                 )
             }

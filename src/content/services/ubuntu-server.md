@@ -17,8 +17,4 @@ Menyerahkan urusan server kepada ahlinya akan menghemat waktu Anda berjam-jam. S
 - **Automated Backup:** Setup sistem backup dasar untuk database dan folder-folder krusial secara berkala.
 - **Monitoring Ringan:** Integrasi monitoring uptime sederhana untuk memastikan Anda tahu jika server mengalami kendala.
 
-![alt text](/images/services/ubuntu-server.png)
-
-
-
 Layanan ini adalah fondasi yang wajib dimiliki sebelum Anda menjalankan aplikasi bisnis di atas server sendiri.

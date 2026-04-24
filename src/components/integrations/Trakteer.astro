@@ -1,0 +1,19 @@
+---
+import { Icon } from "astro-icon/components";
+import Button from "../ui/button/Button.astro";
+import { cn } from "../../utils/styles";
+
+interface Props {
+    class?: string;
+}
+
+const { class: cls = "" } = Astro.props;
+---
+
+<Button
+    href="https://trakteer.id/ujang_sopiyan/"
+    class={cn("items-center gap-2", cls)}
+>
+    <Icon name="lucide:coffee" class="size-6" />
+    Traktir kopi untuk artikel selanjutnya</Button
+>
