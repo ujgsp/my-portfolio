@@ -9,7 +9,7 @@ icon: "lucide:bot"
 isLandingPage: true
 whatsappNumber: "6281234567890"
 ctaText: "Mulai Automasi Bisnis"
-price: "Rp 1.500.000"
+price: "Rp 1.750.000"
 ---
 
 ## Operasional Bisnis Masih Berjalan Manual?
