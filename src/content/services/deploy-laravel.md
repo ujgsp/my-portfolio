@@ -6,7 +6,7 @@ image: { src: "/images/services/laravel-deploy.png", alt: "Beresin Deploy Larave
 tags: ["Laravel", "Deployment", "CI/CD"]
 icon: "lucide:rocket"
 isLandingPage: true
-whatsappNumber: "6281234567890"
+whatsappNumber: "6282321566306"
 ctaText: "Beresin Deploy Sekarang"
 price: "Rp 750.000"
 ---

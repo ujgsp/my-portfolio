@@ -7,7 +7,7 @@ license: ""
 tags: ["n8n", "Automation", "Workflow"]
 icon: "lucide:bot"
 isLandingPage: true
-whatsappNumber: "6281234567890"
+whatsappNumber: "6282321566306"
 ctaText: "Mulai Automasi Bisnis"
 price: "Rp 1.750.000"
 ---

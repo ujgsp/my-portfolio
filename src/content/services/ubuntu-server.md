@@ -7,7 +7,7 @@ image: { src: "/images/services/ubuntu-server.png", alt: "Setup Server Ubuntu" }
 tags: ["Ubuntu", "Server", "Security"]
 icon: "lucide:server"
 isLandingPage: true
-whatsappNumber: "6281234567890"
+whatsappNumber: "6282321566306"
 ctaText: "Konsultasi Setup Ubuntu"
 price: "Rp 500.000"
 ---
