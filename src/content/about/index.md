@@ -3,18 +3,51 @@ title: "Ujang Sopiyan"
 description: "Halo! Saya Ujang Sopiyan, seorang Web Developer dengan pengalaman 3 tahun dalam pengembangan web."
 ---
 
-Halo! Saya Ujang Sopiyan, seorang Web Developer dengan pengalaman 3 tahun dalam pengembangan web. Saya telah mengerjakan berbagai proyek, mulai dari konsep hingga penyelesaian, dengan fokus pada teknologi modern yang memberikan dampak nyata.
+Halo, saya Ujang Sopiyan.
 
-Saya percaya bahwa inovasi tercipta saat kita berani keluar dari zona nyaman. Oleh karena itu, saya terus belajar dan aktif berkontribusi pada proyek-proyek yang berdampak positif, khususnya di bidang teknologi berbasis web.
+Saya membantu menyiapkan server dan aplikasi agar bisa langsung digunakan dengan stabil dan aman. Fokus saya bukan hanya membuat sistem berjalan, tapi memastikan fondasinya sudah benar sejak awal.
 
-### Pengalaman & Kontribusi
-- Aktif sebagai kontributor di **OpenDesa**, membantu pengembangan sistem berbasis teknologi untuk mendukung digitalisasi desa.
-- Terlibat dalam berbagai proyek yang mengedepankan efisiensi, performa, dan pengalaman pengguna yang optimal.
+Saya memiliki pengalaman sekitar 3 tahun di pengembangan web, terutama menggunakan Laravel dan PHP, serta terbiasa melakukan setup server, deployment, dan integrasi sistem sederhana.
 
-### Tech Stack
-- **Languages** : PHP, JavaScript, SQL
-- **Frameworks** : Laravel, CodeIgniter
-- **Tools** : Git, Github, VS Code, WSL, MariaDB, MySQL, Wordpress Elementor, Excel
+Saat ini saya banyak belajar dan mengerjakan hal-hal yang berkaitan dengan:
+- setup server (Ubuntu, web server, database)
+- deployment aplikasi Laravel
+- automasi workflow menggunakan n8n
 
-### Komitmen Saya
-Saya berkomitmen untuk memberikan solusi berbasis teknologi yang inovatif, efisien, dan berdampak positif. Jika Anda memiliki pertanyaan, peluang kerja sama, atau sekadar ingin berdiskusi, jangan ragu untuk menghubungi saya. Saya akan senang membantu.
+Saya percaya bahwa sistem yang baik bukan yang paling kompleks, tapi yang bisa berjalan dengan stabil dan mudah dikelola.
+
+---
+
+## Pengalaman & Kontribusi
+
+- Berkontribusi dalam pengembangan sistem di OpenDesa untuk mendukung digitalisasi desa
+- Terlibat dalam setup server dan deployment aplikasi berbasis web
+- Membantu memastikan aplikasi dapat berjalan dengan stabil di environment production
+
+---
+
+## Tech Stack
+
+**Backend & Database**  
+PHP, Laravel, CodeIgniter, MySQL, MariaDB  
+
+**Tools & Environment**  
+Git, GitHub, Github Actions, Ansible, Linux (Ubuntu), WSL, VS Code, n8n, Docker/Podman, Cloudflare
+
+---
+
+## Cara Saya Bekerja
+
+Saya lebih fokus pada hal-hal berikut:
+- Setup yang rapi dan tidak asal jalan
+- Konfigurasi yang mudah dipahami dan dilanjutkan
+- Solusi yang realistis, bukan over-engineering
+
+---
+
+## Komitmen
+
+Saya tidak menjanjikan sistem yang “sempurna”,  
+tapi saya berusaha memberikan setup yang benar, stabil, dan bisa digunakan.
+
+Jika Anda butuh bantuan untuk menyiapkan server atau aplikasi agar siap digunakan, silakan hubungi saya.
