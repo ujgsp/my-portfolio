@@ -3,7 +3,7 @@ title: "Beresin Deploy Laravel"
 description: "Layanan ekspres 1x selesai untuk memastikan aplikasi Laravel Anda online dengan aman, cepat, dan terkonfigurasi dengan benar."
 pubDate: 2024-05-15
 image: { src: "/images/services/laravel-deploy.png", alt: "Beresin Deploy Laravel" }
-tags: ["Laravel", "Deployment", "CI/CD"]
+tags: ["Laravel", "Deployment", "VPS", "Server"]
 icon: "lucide:rocket"
 isLandingPage: true
 whatsappNumber: "6282321566306"
@@ -28,7 +28,7 @@ Masalah ini jika dibiarkan bisa mengganggu operasional bisnis dan merusak keperc
 Saya membantu Anda membereskan semua masalah infrastruktur agar aplikasi Laravel Anda bisa diakses dengan aman dan lancar di server produksi.
 
 Fokus utama:
-- Kelancaran akses aplikasi
+- Aplikasi bisa diakses via browser tanpa error
 - Keamanan environment (`.env`)
 - Konfigurasi server yang optimal untuk Laravel
 
@@ -60,12 +60,37 @@ Fokus utama:
 ---
 
 
+## Yang Perlu Kamu Siapkan
+
+Sebelum pengerjaan dimulai, pastikan kamu memiliki:
+
+- **Akses server**: SSH ke VPS, atau login ke cPanel / CyberPanel / Plesk
+- **Kode aplikasi**: Repo Git atau file zip project Laravel
+- **File `.env`**: Sudah dikonfigurasi (DB, mail, app key, dsb)
+- **Domain** (opsional): Jika belum di-pointing, bisa dibantu sekalian
+
+> Mendukung VPS (Ubuntu/Debian), cPanel, CyberPanel, Plesk, maupun panel lainnya.
+
+
+---
+
+
 ## Bagaimana Proses Pengerjaannya?
 
 1. **Analisis Kendala**: Diskusi mengenai error yang dialami atau spesifikasi server yang digunakan.
 2. **Setup / Perbaikan**: Saya melakukan pengerjaan langsung di server Anda.
 3. **Pengecekan Akhir**: Menjalankan pengujian untuk memastikan semua fungsi (web, login, upload, cron) berjalan normal.
-4. **Serah Terima**: Pemberian catatan singkat mengenai langkah yang telah dilakukan.
+4. **Serah Terima**: Pemberian ringkasan langkah yang telah dilakukan via chat atau dokumen singkat.
+
+**Estimasi waktu pengerjaan: 1–4 jam**, tergantung kompleksitas masalah dan kondisi server.
+
+
+---
+
+
+## Garansi
+
+Kalau masalah yang **sama persis** muncul lagi dalam **3 hari** setelah serah terima, saya bantu ulang tanpa biaya tambahan.
 
 
 ---
@@ -95,3 +120,8 @@ Layanan ini adalah **layanan ekspres (one-time fix/setup)** untuk deployment.
 - Developer yang ingin mendeploy project tanpa pusing urusan server.
 - Bisnis yang aplikasinya sedang down karena masalah konfigurasi server.
 - Siapa saja yang ingin aplikasi Laravel-nya online dengan standar keamanan yang benar.
+
+---
+
+> **Pembayaran** dilakukan setelah pekerjaan selesai atau DP 50% di awal sesuai kesepakatan.
+> Biasanya dibalas dalam **1–3 jam** di hari kerja (Senin–Sabtu, pukul 09.00–17.00 WIB).
