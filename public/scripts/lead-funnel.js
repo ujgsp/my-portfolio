@@ -1,4 +1,4 @@
-(function () {
+document.addEventListener("DOMContentLoaded", function () {
     var container = document.getElementById("leadFunnelForm");
     if (!container) return;
 
@@ -148,4 +148,4 @@
                 "fixed right-4 bottom-4 max-w-[min(360px,calc(100vw-32px))] px-4 py-3.5 rounded-2xl bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-900 shadow-2xl opacity-0 translate-y-3.5 pointer-events-none transition-all duration-200 font-bold z-[9999]";
         }, 3600);
     }
-})();
+});
