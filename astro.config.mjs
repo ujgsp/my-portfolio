@@ -74,7 +74,7 @@ export default defineConfig({
       directives: [
         "default-src 'self'",
         "object-src 'self'",
-        "connect-src 'self' https://challenges.cloudflare.com https://images.unsplash.com",
+        "connect-src 'self' https://challenges.cloudflare.com https://images.unsplash.com https://script.google.com",
         "base-uri 'self'",
         "img-src 'self' https://res.cloudinary.com/dellp9a4z/ https://images.unsplash.com data:",
         "media-src 'self' https://res.cloudinary.com/dellp9a4z/ https://images.unsplash.com",

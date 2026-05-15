@@ -1,0 +1,462 @@
+---
+interface Props {
+    serviceTitle: string;
+}
+
+const { serviceTitle } = Astro.props;
+const gasUrl = import.meta.env.PUBLIC_GAS_WEBAPP_URL || '';
+---
+
+<div class="w-full max-w-3xl mx-auto">
+    <div
+        id="leadFormCard"
+        class="bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded-3xl shadow-xl shadow-neutral-900/5 dark:shadow-none p-6 sm:p-8 md:p-10"
+    >
+        <div class="mb-7">
+            <span
+                class="inline-flex px-3 py-1 rounded-full bg-neutral-100 dark:bg-neutral-700 text-xs font-bold text-neutral-500 dark:text-neutral-400 mb-3"
+            >
+                Konsultasi DevOps
+            </span>
+            <h2
+                class="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight leading-tight mb-2"
+            >
+                Mulai diskusi kebutuhan teknis Anda
+            </h2>
+            <p class="text-sm sm:text-base text-neutral-500 dark:text-neutral-400 leading-relaxed">
+                Isi form singkat ini agar saya bisa memahami konteks aplikasi,
+                server, dan kendala Anda.
+            </p>
+        </div>
+
+        <form id="leadForm" novalidate class="grid gap-4 sm:gap-5">
+            <!-- Honeypot -->
+            <input
+                type="text"
+                name="website"
+                class="absolute left-[-9999px] opacity-0"
+                tabindex="-1"
+                autocomplete="off"
+            />
+            <input type="hidden" name="user_agent" id="userAgent" />
+            <input type="hidden" name="ip_address" value="" />
+
+            <!-- Nama & Kontak -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <label class="grid gap-2 text-sm font-bold text-neutral-700 dark:text-neutral-300">
+                    Nama <span class="text-red-600">*</span>
+                    <input
+                        name="nama"
+                        type="text"
+                        placeholder="Nama Anda"
+                        required
+                        class="w-full border border-neutral-200 dark:border-neutral-600 rounded-xl px-3.5 py-3 text-sm sm:text-base font-medium bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100 outline-none transition-all duration-200 focus:border-neutral-900 dark:focus:border-neutral-400 focus:ring-4 focus:ring-neutral-900/10 dark:focus:ring-neutral-400/20 placeholder:text-neutral-400 dark:placeholder:text-neutral-500"
+                    />
+                </label>
+                <label class="grid gap-2 text-sm font-bold text-neutral-700 dark:text-neutral-300">
+                    Kontak <span class="text-red-600">*</span>
+                    <input
+                        name="kontak"
+                        type="text"
+                        placeholder="WhatsApp / Email"
+                        required
+                        class="w-full border border-neutral-200 dark:border-neutral-600 rounded-xl px-3.5 py-3 text-sm sm:text-base font-medium bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100 outline-none transition-all duration-200 focus:border-neutral-900 dark:focus:border-neutral-400 focus:ring-4 focus:ring-neutral-900/10 dark:focus:ring-neutral-400/20 placeholder:text-neutral-400 dark:placeholder:text-neutral-500"
+                    />
+                </label>
+            </div>
+
+            <!-- Perusahaan -->
+            <label class="grid gap-2 text-sm font-bold text-neutral-700 dark:text-neutral-300">
+                Perusahaan
+                <input
+                    name="perusahaan"
+                    type="text"
+                    placeholder="Nama perusahaan / bisnis"
+                    class="w-full border border-neutral-200 dark:border-neutral-600 rounded-xl px-3.5 py-3 text-sm sm:text-base font-medium bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100 outline-none transition-all duration-200 focus:border-neutral-900 dark:focus:border-neutral-400 focus:ring-4 focus:ring-neutral-900/10 dark:focus:ring-neutral-400/20 placeholder:text-neutral-400 dark:placeholder:text-neutral-500"
+                />
+            </label>
+
+            <!-- Layanan -->
+            <label class="grid gap-2 text-sm font-bold text-neutral-700 dark:text-neutral-300">
+                Layanan <span class="text-red-600">*</span>
+                <select
+                    name="layanan"
+                    id="layanan"
+                    required
+                    class="w-full border border-neutral-200 dark:border-neutral-600 rounded-xl px-3.5 py-3 text-sm sm:text-base font-medium bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100 outline-none transition-all duration-200 focus:border-neutral-900 dark:focus:border-neutral-400 focus:ring-4 focus:ring-neutral-900/10 dark:focus:ring-neutral-400/20"
+                >
+                    <option value="">Pilih layanan</option>
+                    <option value="Automasi n8n untuk Operasional"
+                        >Automasi n8n untuk Operasional</option
+                    >
+                    <option value="Setup Server Ubuntu Basic"
+                        >Setup Server Ubuntu Basic</option
+                    >
+                    <option value="Beresin Deploy Laravel"
+                        >Beresin Deploy Laravel</option
+                    >
+                </select>
+            </label>
+
+            <!-- Aplikasi & Server -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <label class="grid gap-2 text-sm font-bold text-neutral-700 dark:text-neutral-300">
+                    Aplikasi
+                    <input
+                        name="aplikasi"
+                        type="text"
+                        placeholder="Website / app / tools"
+                        class="w-full border border-neutral-200 dark:border-neutral-600 rounded-xl px-3.5 py-3 text-sm sm:text-base font-medium bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100 outline-none transition-all duration-200 focus:border-neutral-900 dark:focus:border-neutral-400 focus:ring-4 focus:ring-neutral-900/10 dark:focus:ring-neutral-400/20 placeholder:text-neutral-400 dark:placeholder:text-neutral-500"
+                    />
+                </label>
+                <label class="grid gap-2 text-sm font-bold text-neutral-700 dark:text-neutral-300">
+                    Server saat ini
+                    <input
+                        name="server_saat_ini"
+                        type="text"
+                        placeholder="Shared hosting / VPS / belum ada"
+                        class="w-full border border-neutral-200 dark:border-neutral-600 rounded-xl px-3.5 py-3 text-sm sm:text-base font-medium bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100 outline-none transition-all duration-200 focus:border-neutral-900 dark:focus:border-neutral-400 focus:ring-4 focus:ring-neutral-900/10 dark:focus:ring-neutral-400/20 placeholder:text-neutral-400 dark:placeholder:text-neutral-500"
+                    />
+                </label>
+            </div>
+
+            <!-- Kendala -->
+            <label class="grid gap-2 text-sm font-bold text-neutral-700 dark:text-neutral-300">
+                Kendala <span class="text-red-600">*</span>
+                <textarea
+                    name="kendala"
+                    rows="4"
+                    placeholder="Ceritakan kendala utama"
+                    required
+                    class="w-full border border-neutral-200 dark:border-neutral-600 rounded-xl px-3.5 py-3 text-sm sm:text-base font-medium bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100 outline-none transition-all duration-200 focus:border-neutral-900 dark:focus:border-neutral-400 focus:ring-4 focus:ring-neutral-900/10 dark:focus:ring-neutral-400/20 placeholder:text-neutral-400 dark:placeholder:text-neutral-500 resize-y"
+                ></textarea>
+            </label>
+
+            <!-- Budget & Urgency -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <label class="grid gap-2 text-sm font-bold text-neutral-700 dark:text-neutral-300">
+                    Budget <span class="text-red-600">*</span>
+                    <select
+                        name="budget"
+                        required
+                        class="w-full border border-neutral-200 dark:border-neutral-600 rounded-xl px-3.5 py-3 text-sm sm:text-base font-medium bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100 outline-none transition-all duration-200 focus:border-neutral-900 dark:focus:border-neutral-400 focus:ring-4 focus:ring-neutral-900/10 dark:focus:ring-neutral-400/20"
+                    >
+                        <option value="">Pilih budget</option>
+                        <option value="< Rp1 juta">&lt; Rp1 juta</option>
+                        <option value="Rp1 juta - Rp3 juta"
+                            >Rp1 juta - Rp3 juta</option
+                        >
+                        <option value="Rp3 juta - Rp5 juta"
+                            >Rp3 juta - Rp5 juta</option
+                        >
+                        <option value="> Rp5 juta">&gt; Rp5 juta</option>
+                    </select>
+                </label>
+                <label class="grid gap-2 text-sm font-bold text-neutral-700 dark:text-neutral-300">
+                    Urgency <span class="text-red-600">*</span>
+                    <select
+                        name="urgency"
+                        required
+                        class="w-full border border-neutral-200 dark:border-neutral-600 rounded-xl px-3.5 py-3 text-sm sm:text-base font-medium bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100 outline-none transition-all duration-200 focus:border-neutral-900 dark:focus:border-neutral-400 focus:ring-4 focus:ring-neutral-900/10 dark:focus:ring-neutral-400/20"
+                    >
+                        <option value="">Pilih urgency</option>
+                        <option value="Santai">Santai</option>
+                        <option value="Minggu ini">Minggu ini</option>
+                        <option value="Secepatnya">Secepatnya</option>
+                        <option value="Emergency">Emergency</option>
+                    </select>
+                </label>
+            </div>
+
+            <!-- Conditional: n8n -->
+            <div
+                class="conditional hidden grid gap-4 p-4 sm:p-5 border border-dashed border-neutral-300 dark:border-neutral-600 rounded-2xl bg-neutral-50 dark:bg-neutral-700/50"
+                data-service="Automasi n8n untuk Operasional"
+            >
+                <label class="grid gap-2 text-sm font-bold text-neutral-700 dark:text-neutral-300">
+                    Workflow yang ingin diautomasi <span class="text-red-600">*</span>
+                    <textarea
+                        name="workflow"
+                        rows="3"
+                        placeholder="Contoh: follow up lead, invoice, reporting"
+                        class="w-full border border-neutral-200 dark:border-neutral-600 rounded-xl px-3.5 py-3 text-sm sm:text-base font-medium bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100 outline-none transition-all duration-200 focus:border-neutral-900 dark:focus:border-neutral-400 focus:ring-4 focus:ring-neutral-900/10 dark:focus:ring-neutral-400/20 placeholder:text-neutral-400 dark:placeholder:text-neutral-500 resize-y"
+                    ></textarea>
+                </label>
+                <label class="grid gap-2 text-sm font-bold text-neutral-700 dark:text-neutral-300">
+                    Integrasi yang dibutuhkan <span class="text-red-600">*</span>
+                    <input
+                        name="integrasi"
+                        type="text"
+                        placeholder="Google Sheet, WhatsApp, CRM, API"
+                        class="w-full border border-neutral-200 dark:border-neutral-600 rounded-xl px-3.5 py-3 text-sm sm:text-base font-medium bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100 outline-none transition-all duration-200 focus:border-neutral-900 dark:focus:border-neutral-400 focus:ring-4 focus:ring-neutral-900/10 dark:focus:ring-neutral-400/20 placeholder:text-neutral-400 dark:placeholder:text-neutral-500"
+                    />
+                </label>
+                <label class="grid gap-2 text-sm font-bold text-neutral-700 dark:text-neutral-300">
+                    Sudah pakai n8n? <span class="text-red-600">*</span>
+                    <select
+                        name="sudah_pakai_n8n"
+                        class="w-full border border-neutral-200 dark:border-neutral-600 rounded-xl px-3.5 py-3 text-sm sm:text-base font-medium bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100 outline-none transition-all duration-200 focus:border-neutral-900 dark:focus:border-neutral-400 focus:ring-4 focus:ring-neutral-900/10 dark:focus:ring-neutral-400/20"
+                    >
+                        <option value="">Pilih jawaban</option>
+                        <option value="Sudah">Sudah</option>
+                        <option value="Belum">Belum</option>
+                    </select>
+                </label>
+            </div>
+
+            <!-- Conditional: Ubuntu -->
+            <div
+                class="conditional hidden grid gap-4 p-4 sm:p-5 border border-dashed border-neutral-300 dark:border-neutral-600 rounded-2xl bg-neutral-50 dark:bg-neutral-700/50"
+                data-service="Setup Server Ubuntu Basic"
+            >
+                <label class="grid gap-2 text-sm font-bold text-neutral-700 dark:text-neutral-300">
+                    Provider VPS <span class="text-red-600">*</span>
+                    <input
+                        name="provider_vps"
+                        type="text"
+                        placeholder="DigitalOcean, Vultr, IDCloudHost, dll"
+                        class="w-full border border-neutral-200 dark:border-neutral-600 rounded-xl px-3.5 py-3 text-sm sm:text-base font-medium bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100 outline-none transition-all duration-200 focus:border-neutral-900 dark:focus:border-neutral-400 focus:ring-4 focus:ring-neutral-900/10 dark:focus:ring-neutral-400/20 placeholder:text-neutral-400 dark:placeholder:text-neutral-500"
+                    />
+                </label>
+                <label class="grid gap-2 text-sm font-bold text-neutral-700 dark:text-neutral-300">
+                    Kebutuhan server <span class="text-red-600">*</span>
+                    <textarea
+                        name="kebutuhan_server"
+                        rows="3"
+                        placeholder="Web server, database, SSL, firewall"
+                        class="w-full border border-neutral-200 dark:border-neutral-600 rounded-xl px-3.5 py-3 text-sm sm:text-base font-medium bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100 outline-none transition-all duration-200 focus:border-neutral-900 dark:focus:border-neutral-400 focus:ring-4 focus:ring-neutral-900/10 dark:focus:ring-neutral-400/20 placeholder:text-neutral-400 dark:placeholder:text-neutral-500 resize-y"
+                    ></textarea>
+                </label>
+                <label class="grid gap-2 text-sm font-bold text-neutral-700 dark:text-neutral-300">
+                    Estimasi traffic <span class="text-red-600">*</span>
+                    <input
+                        name="estimasi_traffic"
+                        type="text"
+                        placeholder="Contoh: 1.000 visitor / bulan"
+                        class="w-full border border-neutral-200 dark:border-neutral-600 rounded-xl px-3.5 py-3 text-sm sm:text-base font-medium bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100 outline-none transition-all duration-200 focus:border-neutral-900 dark:focus:border-neutral-400 focus:ring-4 focus:ring-neutral-900/10 dark:focus:ring-neutral-400/20 placeholder:text-neutral-400 dark:placeholder:text-neutral-500"
+                    />
+                </label>
+            </div>
+
+            <!-- Conditional: Laravel -->
+            <div
+                class="conditional hidden grid gap-4 p-4 sm:p-5 border border-dashed border-neutral-300 dark:border-neutral-600 rounded-2xl bg-neutral-50 dark:bg-neutral-700/50"
+                data-service="Beresin Deploy Laravel"
+            >
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <label class="grid gap-2 text-sm font-bold text-neutral-700 dark:text-neutral-300">
+                        Laravel version <span class="text-red-600">*</span>
+                        <input
+                            name="laravel_version"
+                            type="text"
+                            placeholder="Laravel 10 / 11"
+                            class="w-full border border-neutral-200 dark:border-neutral-600 rounded-xl px-3.5 py-3 text-sm sm:text-base font-medium bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100 outline-none transition-all duration-200 focus:border-neutral-900 dark:focus:border-neutral-400 focus:ring-4 focus:ring-neutral-900/10 dark:focus:ring-neutral-400/20 placeholder:text-neutral-400 dark:placeholder:text-neutral-500"
+                        />
+                    </label>
+                    <label class="grid gap-2 text-sm font-bold text-neutral-700 dark:text-neutral-300">
+                        Sudah punya server? <span class="text-red-600">*</span>
+                        <select
+                            name="sudah_punya_server"
+                            class="w-full border border-neutral-200 dark:border-neutral-600 rounded-xl px-3.5 py-3 text-sm sm:text-base font-medium bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100 outline-none transition-all duration-200 focus:border-neutral-900 dark:focus:border-neutral-400 focus:ring-4 focus:ring-neutral-900/10 dark:focus:ring-neutral-400/20"
+                        >
+                            <option value="">Pilih jawaban</option>
+                            <option value="Sudah">Sudah</option>
+                            <option value="Belum">Belum</option>
+                        </select>
+                    </label>
+                </div>
+                <label class="grid gap-2 text-sm font-bold text-neutral-700 dark:text-neutral-300">
+                    Fitur Laravel <span class="text-red-600">*</span>
+                    <textarea
+                        name="fitur_laravel"
+                        rows="3"
+                        placeholder="Queue, scheduler, storage, payment, API"
+                        class="w-full border border-neutral-200 dark:border-neutral-600 rounded-xl px-3.5 py-3 text-sm sm:text-base font-medium bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100 outline-none transition-all duration-200 focus:border-neutral-900 dark:focus:border-neutral-400 focus:ring-4 focus:ring-neutral-900/10 dark:focus:ring-neutral-400/20 placeholder:text-neutral-400 dark:placeholder:text-neutral-500 resize-y"
+                    ></textarea>
+                </label>
+                <label class="grid gap-2 text-sm font-bold text-neutral-700 dark:text-neutral-300">
+                    Repository <span class="text-red-600">*</span>
+                    <input
+                        name="repository"
+                        type="text"
+                        placeholder="GitHub / GitLab repository"
+                        class="w-full border border-neutral-200 dark:border-neutral-600 rounded-xl px-3.5 py-3 text-sm sm:text-base font-medium bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100 outline-none transition-all duration-200 focus:border-neutral-900 dark:focus:border-neutral-400 focus:ring-4 focus:ring-neutral-900/10 dark:focus:ring-neutral-400/20 placeholder:text-neutral-400 dark:placeholder:text-neutral-500"
+                    />
+                </label>
+            </div>
+
+            <!-- Submit -->
+            <button
+                type="submit"
+                id="submitButton"
+                class="inline-flex items-center justify-center gap-2.5 min-h-[52px] rounded-2xl bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-900 font-extrabold text-sm sm:text-base cursor-pointer transition-all duration-200 hover:bg-neutral-700 dark:hover:bg-neutral-300 hover:-translate-y-px active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-75 disabled:transform-none mt-2"
+            >
+                <span class="button-text">Kirim Konsultasi</span>
+                <span
+                    class="spinner hidden w-[18px] h-[18px] border-2 border-white/30 dark:border-neutral-900/30 border-t-white dark:border-t-neutral-900 rounded-full animate-[spin_0.8s_linear_infinite]"
+                    aria-hidden="true"></span>
+            </button>
+        </form>
+    </div>
+</div>
+
+<!-- Toast -->
+<div
+    id="leadToast"
+    class="fixed right-4 bottom-4 max-w-[min(360px,calc(100vw-32px))] px-4 py-3.5 rounded-2xl bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-900 shadow-2xl opacity-0 translate-y-3.5 pointer-events-none transition-all duration-200 font-bold z-[9999]"
+    role="status"
+>
+</div>
+
+<script is:inline define:vars={{ gasUrl, serviceTitle }}>
+(function () {
+    var GAS_URL = gasUrl;
+    var INITIAL_SERVICE = serviceTitle;
+
+    var form = document.getElementById("leadForm");
+    var layanan = document.getElementById("layanan");
+    var submitButton = document.getElementById("submitButton");
+    var toast = document.getElementById("leadToast");
+    var userAgent = document.getElementById("userAgent");
+
+    if (userAgent) userAgent.value = navigator.userAgent || "";
+
+    // Auto-select service from page
+    if (INITIAL_SERVICE && layanan) {
+        layanan.value = INITIAL_SERVICE;
+    }
+
+    layanan.addEventListener("change", updateConditionalFields);
+    form.addEventListener("submit", handleSubmit);
+    updateConditionalFields();
+
+    function updateConditionalFields() {
+        var selectedService = layanan.value;
+
+        document.querySelectorAll(".conditional").forEach(function (section) {
+            var isActive = section.dataset.service === selectedService;
+            if (isActive) {
+                section.classList.remove("hidden");
+                section.classList.add("grid");
+            } else {
+                section.classList.add("hidden");
+                section.classList.remove("grid");
+            }
+            section
+                .querySelectorAll("input, select, textarea")
+                .forEach(function (field) {
+                    field.required = isActive;
+                    if (!isActive) field.value = "";
+                });
+        });
+    }
+
+    function handleSubmit(event) {
+        event.preventDefault();
+
+        if (!form.checkValidity()) {
+            form.reportValidity();
+            showToast("Lengkapi field wajib terlebih dahulu.", "error");
+            return;
+        }
+
+        setLoading(true);
+
+        fetch(GAS_URL, {
+            method: "POST",
+            mode: "cors",
+            headers: { "Content-Type": "text/plain" },
+            body: JSON.stringify(getFormData()),
+        })
+            .then(function (response) {
+                return response.text();
+            })
+            .then(function (text) {
+                var result;
+                try {
+                    result = JSON.parse(text);
+                } catch (e) {
+                    result = null;
+                }
+
+                if (!result || !result.success) {
+                    showToast(
+                        result && result.message
+                            ? result.message
+                            : "Submit gagal.",
+                        "error"
+                    );
+                    setLoading(false);
+                    return;
+                }
+
+                showToast(result.message, "success");
+                form.reset();
+                if (INITIAL_SERVICE) layanan.value = INITIAL_SERVICE;
+                updateConditionalFields();
+
+                setTimeout(function () {
+                    window.location.href = result.whatsappUrl;
+                }, 1200);
+            })
+            .catch(function () {
+                showToast(
+                    "Terjadi kesalahan jaringan. Silakan coba lagi.",
+                    "error"
+                );
+                setLoading(false);
+            });
+    }
+
+    function getFormData() {
+        var formData = new FormData(form);
+        var data = {};
+        formData.forEach(function (value, key) {
+            data[key] = sanitize(value);
+        });
+        return data;
+    }
+
+    function sanitize(value) {
+        return String(value || "")
+            .replace(/[<>]/g, "")
+            .replace(/[\u0000-\u001F\u007F]/g, "")
+            .trim();
+    }
+
+    function setLoading(isLoading) {
+        submitButton.disabled = isLoading;
+        var spinner = submitButton.querySelector(".spinner");
+        var btnText = submitButton.querySelector(".button-text");
+        if (isLoading) {
+            submitButton.classList.add("loading");
+            spinner.classList.remove("hidden");
+            spinner.classList.add("inline-block");
+            btnText.textContent = "Mengirim...";
+        } else {
+            submitButton.classList.remove("loading");
+            spinner.classList.add("hidden");
+            spinner.classList.remove("inline-block");
+            btnText.textContent = "Kirim Konsultasi";
+        }
+    }
+
+    function showToast(message, type) {
+        toast.textContent = message;
+        toast.className =
+            "fixed right-4 bottom-4 max-w-[min(360px,calc(100vw-32px))] px-4 py-3.5 rounded-2xl shadow-2xl opacity-100 translate-y-0 font-bold z-[9999] transition-all duration-200 ";
+        if (type === "success") {
+            toast.className +=
+                "bg-green-600 text-white";
+        } else {
+            toast.className += "bg-red-600 text-white";
+        }
+
+        clearTimeout(showToast._timeout);
+        showToast._timeout = setTimeout(function () {
+            toast.className =
+                "fixed right-4 bottom-4 max-w-[min(360px,calc(100vw-32px))] px-4 py-3.5 rounded-2xl bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-900 shadow-2xl opacity-0 translate-y-3.5 pointer-events-none transition-all duration-200 font-bold z-[9999]";
+        }, 3600);
+    }
+})();
+</script>

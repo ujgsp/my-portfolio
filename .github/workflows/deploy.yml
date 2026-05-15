@@ -21,6 +21,7 @@ jobs:
     env:
       PUBLIC_CLOUDINARY_CLOUD_NAME: dellp9a4z
       PUBLIC_TURNSTILE_SITE_KEY: 1x00000000000000000000AA
+      PUBLIC_GAS_WEBAPP_URL: https://script.google.com/macros/s/AKfycby9OXu6Eos4iArJyNIKVKNvw3icC4n_ziuFSjRAadQvMRcE4JPY6Lm-gXMxy3sNznf0Bw/exec
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4

@@ -6,7 +6,7 @@ import { render } from "astro:content";
 import OptimizedImage from "../../components/ui/OptimizedImage.astro";
 import Prose from "../../components/content/Prose.astro";
 import PostMeta from "../../components/content/PostMeta.astro";
-import WhatsappCTA from "../../components/ui/WhatsappCTA.astro";
+import LeadFunnelForm from "../../components/ui/LeadFunnelForm.astro";
 import { attachMeta } from "../../utils/meta";
 
 export async function getStaticPaths() {
@@ -53,23 +53,9 @@ const { Content } = await render(service);
                     </Prose>
                 </div>
                 
-                {service.data.whatsappNumber && (
-                    <div class="mt-12 md:mt-16 flex flex-col items-center justify-center p-6 sm:p-12 bg-blue-50 dark:bg-neutral-800 rounded-2xl md:rounded-3xl border-2 border-dashed border-blue-200 dark:border-neutral-700">
-                        <h2 class="text-xl md:text-2xl font-bold mb-4 text-center">Siap Memulai?</h2>
-                        <p class="text-sm md:text-base text-gray-600 dark:text-gray-400 mb-8 text-center px-2">
-                            Konsultasikan kebutuhan Anda sekarang secara gratis.
-                        </p>
-                        <WhatsappCTA 
-                            number={service.data.whatsappNumber} 
-                            text={service.data.ctaText}
-                            message={`Halo, saya tertarik dengan layanan ${service.data.title}.`}
-                            class="w-full sm:w-auto"
-                        />
-                        {service.data.price && (
-                            <p class="mt-4 text-xs md:text-sm text-gray-500">Mulai dari {service.data.price}</p>
-                        )}
-                    </div>
-                )}
+                <div class="mt-12 md:mt-16">
+                    <LeadFunnelForm serviceTitle={service.data.title} />
+                </div>
             </article>
         </LandingLayout>
     ) : (
