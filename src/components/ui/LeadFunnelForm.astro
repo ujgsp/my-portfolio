@@ -308,10 +308,9 @@ const gasUrl = import.meta.env.PUBLIC_GAS_WEBAPP_URL || '';
 >
 </div>
 
-<script is:inline define:vars={{ gasUrl, serviceTitle }}>
-(function () {
-    var GAS_URL = gasUrl;
-    var INITIAL_SERVICE = serviceTitle;
+<script is:inline set:html={`(function () {
+    var GAS_URL = ${JSON.stringify(gasUrl)};
+    var INITIAL_SERVICE = ${JSON.stringify(serviceTitle)};
 
     var form = document.getElementById("leadForm");
     var layanan = document.getElementById("layanan");
@@ -321,7 +320,6 @@ const gasUrl = import.meta.env.PUBLIC_GAS_WEBAPP_URL || '';
 
     if (userAgent) userAgent.value = navigator.userAgent || "";
 
-    // Auto-select service from page
     if (INITIAL_SERVICE && layanan) {
         layanan.value = INITIAL_SERVICE;
     }
@@ -420,7 +418,7 @@ const gasUrl = import.meta.env.PUBLIC_GAS_WEBAPP_URL || '';
     function sanitize(value) {
         return String(value || "")
             .replace(/[<>]/g, "")
-            .replace(/[\u0000-\u001F\u007F]/g, "")
+            .replace(/[\\u0000-\\u001F\\u007F]/g, "")
             .trim();
     }
 
@@ -458,5 +456,4 @@ const gasUrl = import.meta.env.PUBLIC_GAS_WEBAPP_URL || '';
                 "fixed right-4 bottom-4 max-w-[min(360px,calc(100vw-32px))] px-4 py-3.5 rounded-2xl bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-900 shadow-2xl opacity-0 translate-y-3.5 pointer-events-none transition-all duration-200 font-bold z-[9999]";
         }, 3600);
     }
-})();
-</script>
+})();`}></script>
