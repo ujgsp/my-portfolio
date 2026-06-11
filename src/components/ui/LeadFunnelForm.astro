@@ -88,14 +88,14 @@ const gasUrl = import.meta.env.PUBLIC_GAS_WEBAPP_URL || '';
                     class="w-full border border-neutral-200 dark:border-neutral-600 rounded-xl px-3.5 py-3 text-sm sm:text-base font-medium bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100 outline-none transition-all duration-200 focus:border-neutral-900 dark:focus:border-neutral-400 focus:ring-4 focus:ring-neutral-900/10 dark:focus:ring-neutral-400/20"
                 >
                     <option value="">Pilih layanan</option>
-                    <option value="Automasi n8n untuk Operasional"
-                        >Automasi n8n untuk Operasional</option
+                    <option value="Otomasi n8n yang Benar-Benar Mengurangi Kerja Manual"
+                        >Otomasi n8n</option
                     >
-                    <option value="Setup Server Ubuntu Basic"
-                        >Setup Server Ubuntu Basic</option
+                    <option value="Ubuntu VPS Siap Production, Bukan Sekadar Install"
+                        >Setup Server Ubuntu</option
                     >
-                    <option value="Beresin Deploy Laravel"
-                        >Beresin Deploy Laravel</option
+                    <option value="Deploy Laravel Tanpa Drama Server"
+                        >Deploy Laravel</option
                     >
                 </select>
             </label>
@@ -173,7 +173,7 @@ const gasUrl = import.meta.env.PUBLIC_GAS_WEBAPP_URL || '';
             <!-- Conditional: n8n -->
             <div
                 class="conditional hidden grid gap-4 p-4 sm:p-5 border border-dashed border-neutral-300 dark:border-neutral-600 rounded-2xl bg-neutral-50 dark:bg-neutral-700/50"
-                data-service="Automasi n8n untuk Operasional"
+                data-service="Otomasi n8n yang Benar-Benar Mengurangi Kerja Manual"
             >
                 <label class="grid gap-2 text-sm font-bold text-neutral-700 dark:text-neutral-300">
                     Workflow yang ingin diautomasi <span class="text-red-600">*</span>
@@ -209,7 +209,7 @@ const gasUrl = import.meta.env.PUBLIC_GAS_WEBAPP_URL || '';
             <!-- Conditional: Ubuntu -->
             <div
                 class="conditional hidden grid gap-4 p-4 sm:p-5 border border-dashed border-neutral-300 dark:border-neutral-600 rounded-2xl bg-neutral-50 dark:bg-neutral-700/50"
-                data-service="Setup Server Ubuntu Basic"
+                data-service="Ubuntu VPS Siap Production, Bukan Sekadar Install"
             >
                 <label class="grid gap-2 text-sm font-bold text-neutral-700 dark:text-neutral-300">
                     Provider VPS <span class="text-red-600">*</span>
@@ -243,7 +243,7 @@ const gasUrl = import.meta.env.PUBLIC_GAS_WEBAPP_URL || '';
             <!-- Conditional: Laravel -->
             <div
                 class="conditional hidden grid gap-4 p-4 sm:p-5 border border-dashed border-neutral-300 dark:border-neutral-600 rounded-2xl bg-neutral-50 dark:bg-neutral-700/50"
-                data-service="Beresin Deploy Laravel"
+                data-service="Deploy Laravel Tanpa Drama Server"
             >
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <label class="grid gap-2 text-sm font-bold text-neutral-700 dark:text-neutral-300">
