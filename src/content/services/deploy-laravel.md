@@ -1,8 +1,8 @@
 ---
-title: "Beresin Deploy Laravel"
-description: "Layanan ekspres 1x selesai untuk memastikan aplikasi Laravel Anda online dengan aman, cepat, dan terkonfigurasi dengan benar."
+title: "Deploy Laravel Tanpa Drama Server"
+description: "Kami bantu aplikasi Laravel Anda live dengan konfigurasi aman, cron/queue rapi, dan dokumentasi singkat agar tim Anda tidak bergantung penuh pada teknisi."
 pubDate: 2024-05-15
-image: { src: "/images/services/laravel-deploy.png", alt: "Beresin Deploy Laravel" }
+image: { src: "/images/services/laravel-deploy.png", alt: "Deploy Laravel Tanpa Drama Server" }
 tags: ["Laravel", "Deployment", "VPS", "Server"]
 icon: "lucide:rocket"
 isLandingPage: true

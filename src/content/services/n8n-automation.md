@@ -1,8 +1,8 @@
 ---
-title: "Automasi n8n untuk Operasional"
-description: "Hubungkan antar aplikasi bisnis Anda secara otomatis menggunakan n8n tanpa perlu coding rumit."
+title: "Otomasi n8n yang Benar-Benar Mengurangi Kerja Manual"
+description: "Dari order masuk sampai notifikasi dan laporan, kami bangun workflow yang rapi, terdokumentasi, dan mudah dipakai admin Anda."
 pubDate: 2024-05-17
-image: { src: "/images/services/n8n-automation.png", alt: "Automasi n8n" }
+image: { src: "/images/services/n8n-automation.png", alt: "Otomasi n8n" }
 tags: ["n8n", "Automation", "Workflow"]
 icon: "lucide:bot"
 isLandingPage: true

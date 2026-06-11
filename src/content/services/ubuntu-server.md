@@ -1,8 +1,8 @@
 ---
-title: "Setup Server Ubuntu Basic"
-description: "Konfigurasi server VPS Ubuntu Anda agar siap tempur untuk hosting aplikasi atau website dengan standar keamanan tinggi."
+title: "Ubuntu VPS Siap Production, Bukan Sekadar Install"
+description: "Server Anda disiapkan dengan hardening dasar, backup, SSL, dan handover yang jelas agar developer bisa deploy lebih tenang."
 pubDate: 2024-05-16
-image: { src: "/images/services/ubuntu-server.png", alt: "Setup Server Ubuntu" }
+image: { src: "/images/services/ubuntu-server.png", alt: "Ubuntu VPS Siap Production" }
 tags: ["Ubuntu", "Server", "Security"]
 icon: "lucide:server"
 isLandingPage: true
