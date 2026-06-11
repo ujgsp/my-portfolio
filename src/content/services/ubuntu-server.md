@@ -7,7 +7,7 @@ tags: ["Ubuntu", "Server", "Security"]
 icon: "lucide:server"
 isLandingPage: true
 ctaText: "Konsultasi Setup Ubuntu"
-price: "Rp 500.000"
+price: "Mulai dari Rp 500.000"
 ---
 
 ## Server Anda Sudah Siap Digunakan?
@@ -166,3 +166,16 @@ Monitoring lanjutan dan support bisa dibahas sebagai layanan terpisah.
 Layanan ini membantu Anda memiliki server yang siap digunakan tanpa trial-error yang berisiko.
 
 Jika Anda membutuhkan setup yang rapi, aman, dan bisa langsung dipakai, layanan ini bisa menjadi langkah awal yang tepat.
+
+---
+
+
+## Pilihan Paket
+
+| Paket | Harga | Include |
+|---|---|---|
+| **VPS Hardening Starter** | Rp 500.000 - 750.000 | SSH key, UFW, Fail2Ban, update sistem, 1 web stack, SSL, 1 backup job, handover checklist |
+| **Server Ready** | Rp 1.200.000 - 1.800.000 | + monitoring up/down, backup restore test, 1 domain, dokumen akses, review permission & port, support 7 hari |
+| **Ops Care Add-on** | Rp 500.000 - 1.200.000/bulan | Patching ringan, uptime check, 1x backup audit bulanan, response office hours |
+
+> 💡 **Catatan**: Harga tidak termasuk biaya VPS/hosting atau domain.
