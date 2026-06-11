@@ -7,22 +7,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
     var form = document.getElementById("leadForm");
     var layanan = document.getElementById("layanan");
+    var layananHidden = document.getElementById("layananHidden");
     var submitButton = document.getElementById("submitButton");
     var toast = document.getElementById("leadToast");
     var userAgent = document.getElementById("userAgent");
 
     if (userAgent) userAgent.value = navigator.userAgent || "";
 
-    if (INITIAL_SERVICE && layanan) {
-        layanan.value = INITIAL_SERVICE;
+    // If on a service page, use the hidden input value
+    if (INITIAL_SERVICE) {
+        if (layananHidden) layananHidden.value = INITIAL_SERVICE;
+        if (layanan) layanan.value = INITIAL_SERVICE;
     }
 
-    layanan.addEventListener("change", updateConditionalFields);
+    if (layanan) {
+        layanan.addEventListener("change", function () {
+            // Update hidden input when dropdown changes
+            if (layananHidden) layananHidden.value = layanan.value;
+            updateConditionalFields();
+        });
+    }
     form.addEventListener("submit", handleSubmit);
     updateConditionalFields();
 
     function updateConditionalFields() {
-        var selectedService = layanan.value;
+        var selectedService = INITIAL_SERVICE || (layanan ? layanan.value : "");
 
         document.querySelectorAll(".conditional").forEach(function (section) {
             var isActive = section.dataset.service === selectedService;
@@ -83,7 +92,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 showToast(result.message, "success");
                 form.reset();
-                if (INITIAL_SERVICE) layanan.value = INITIAL_SERVICE;
+                if (INITIAL_SERVICE) {
+                    if (layananHidden) layananHidden.value = INITIAL_SERVICE;
+                    if (layanan) layanan.value = INITIAL_SERVICE;
+                }
                 updateConditionalFields();
 
                 setTimeout(function () {

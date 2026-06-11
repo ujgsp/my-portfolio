@@ -57,8 +57,29 @@ const { Content } = await render(service);
                     </Prose>
                 </div>
                 
+                {/* Pilihan Paket Section */}
+                {service.data.packages && service.data.packages.length > 0 && (
+                    <div class="mt-12 md:mt-16">
+                        <h2 class="text-2xl font-bold tracking-tight mb-6">Pilihan Paket</h2>
+                        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                            {service.data.packages.map((pkg) => (
+                                <div class="border border-neutral-200 dark:border-neutral-700 rounded-xl p-5 hover:border-neutral-400 dark:hover:border-neutral-500 transition-colors">
+                                    <h3 class="font-bold text-lg mb-2">{pkg.name}</h3>
+                                    <p class="text-sm font-semibold text-neutral-600 dark:text-neutral-400 mb-3">{pkg.price}</p>
+                                    {pkg.description && (
+                                        <p class="text-sm text-neutral-500 dark:text-neutral-400">{pkg.description}</p>
+                                    )}
+                                </div>
+                            ))}
+                        </div>
+                        <p class="mt-4 text-sm text-neutral-500 dark:text-neutral-400">
+                            💡 Pilih paket yang sesuai kebutuhan Anda, atau konsultasikan langsung via form di bawah.
+                        </p>
+                    </div>
+                )}
+                
                 <div class="mt-12 md:mt-16">
-                    <LeadFunnelForm serviceTitle={service.data.title} />
+                    <LeadFunnelForm serviceTitle={service.data.title} packages={service.data.packages} />
                     
                     {SITE_SETTINGS.whatsappNumber && (
                         <div class="mt-8 text-center">

@@ -90,6 +90,11 @@ const services = defineCollection({
     ctaText: z.string().optional(),
     price: z.string().optional(),
     showMetadata: z.boolean().default(false),
+    packages: z.array(z.object({
+      name: z.string(),
+      price: z.string(),
+      description: z.string().optional(),
+    })).optional(),
   }),
 });
 

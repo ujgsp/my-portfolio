@@ -8,6 +8,16 @@ icon: "lucide:bot"
 isLandingPage: true
 ctaText: "Mulai Automasi Bisnis"
 price: "Mulai dari Rp 500.000"
+packages:
+  - name: "Workflow Lite"
+    price: "Rp 500.000 - 800.000"
+    description: "1 flow linear, 2 aplikasi, hingga 5 node/step utama, testing, dokumentasi 1 halaman, support 3 hari"
+  - name: "Workflow Growth"
+    price: "Rp 1.200.000 - 2.500.000"
+    description: "1 flow bisnis inti, 3-5 aplikasi, branching, basic error handling, SOP, support 7-14 hari"
+  - name: "Automation Ops"
+    price: "Rp 3.000.000 - 6.000.000"
+    description: "2-3 flow inti, custom webhook/API, observability dasar, training, support 30 hari"
 ---
 
 ## Operasional Bisnis Masih Berjalan Manual?
@@ -93,12 +103,3 @@ Layanan ini adalah **layanan pembangunan workflow MVP (Minimum Viable Product)**
 ---
 
 
-## Pilihan Paket
-
-| Paket | Harga | Include |
-|---|---|---|
-| **Workflow Lite** | Rp 500.000 - 800.000 | 1 flow linear, 2 aplikasi, hingga 5 node/step utama, testing, dokumentasi 1 halaman, support 3 hari |
-| **Workflow Growth** | Rp 1.200.000 - 2.500.000 | 1 flow bisnis inti, 3-5 aplikasi, branching, basic error handling, SOP, support 7-14 hari |
-| **Automation Ops** | Rp 3.000.000 - 6.000.000 | 2-3 flow inti, custom webhook/API, observability dasar, training, support 30 hari |
-
-> 💡 **Catatan**: Harga tidak termasuk biaya hosting n8n, langganan WhatsApp API, atau aplikasi pihak ketiga lainnya.

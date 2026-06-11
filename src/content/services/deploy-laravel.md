@@ -8,6 +8,16 @@ icon: "lucide:rocket"
 isLandingPage: true
 ctaText: "Beresin Deploy Sekarang"
 price: "Mulai dari Rp 450.000"
+packages:
+  - name: "Quick Launch"
+    price: "Rp 450.000 - 650.000"
+    description: "Deploy 1 app, domain, SSL, env review, smoke test, ringkasan 1 halaman"
+  - name: "Production Safe"
+    price: "Rp 900.000 - 1.500.000"
+    description: "+ backup sebelum deploy, rollback plan, cron, queue via Supervisor, hardening dasar, dokumentasi"
+  - name: "Release Pipeline"
+    price: "Rp 1.800.000 - 3.000.000"
+    description: "+ staging environment, Docker/Compose atau CI/CD ringan, healthcheck, support 14 hari"
 ---
 
 ## Aplikasi Laravel Anda Bermasalah Saat Online?
@@ -119,20 +129,6 @@ Layanan ini adalah **layanan ekspres (one-time fix/setup)** untuk deployment.
 - Developer yang ingin mendeploy project tanpa pusing urusan server.
 - Bisnis yang aplikasinya sedang down karena masalah konfigurasi server.
 - Siapa saja yang ingin aplikasi Laravel-nya online dengan standar keamanan yang benar.
-
-
----
-
-
-## Pilihan Paket
-
-| Paket | Harga | Include |
-|---|---|---|
-| **Quick Launch** | Rp 450.000 - 650.000 | Deploy 1 app, domain, SSL, env review, smoke test, ringkasan 1 halaman |
-| **Production Safe** | Rp 900.000 - 1.500.000 | + backup sebelum deploy, rollback plan, cron, queue via Supervisor, hardening dasar, dokumentasi |
-| **Release Pipeline** | Rp 1.800.000 - 3.000.000 | + staging environment, Docker/Compose atau CI/CD ringan, healthcheck, support 14 hari |
-
-> 💡 **Catatan**: Harga tidak termasuk biaya VPS/hosting, domain, atau langganan pihak ketiga.
 
 
 ---

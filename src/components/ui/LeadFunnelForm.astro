@@ -1,9 +1,14 @@
 ---
 interface Props {
     serviceTitle: string;
+    packages?: Array<{
+        name: string;
+        price: string;
+        description?: string;
+    }>;
 }
 
-const { serviceTitle } = Astro.props;
+const { serviceTitle, packages = [] } = Astro.props;
 const gasUrl = import.meta.env.PUBLIC_GAS_WEBAPP_URL || '';
 ---
 
@@ -23,11 +28,12 @@ const gasUrl = import.meta.env.PUBLIC_GAS_WEBAPP_URL || '';
             <h2
                 class="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight leading-tight mb-2"
             >
-                Mulai diskusi kebutuhan teknis Anda
+                {serviceTitle || 'Mulai diskusi kebutuhan teknis Anda'}
             </h2>
             <p class="text-sm sm:text-base text-neutral-500 dark:text-neutral-400 leading-relaxed">
-                Isi form singkat ini agar saya bisa memahami konteks aplikasi,
-                server, dan kendala Anda.
+                {serviceTitle 
+                    ? 'Isi form singkat ini agar saya bisa memahami kebutuhan spesifik Anda.' 
+                    : 'Isi form singkat ini agar saya bisa memahami konteks aplikasi, server, dan kendala Anda.'}
             </p>
         </div>
 
@@ -78,8 +84,17 @@ const gasUrl = import.meta.env.PUBLIC_GAS_WEBAPP_URL || '';
                 />
             </label>
 
-            <!-- Layanan -->
-            <label class="grid gap-2 text-sm font-bold text-neutral-700 dark:text-neutral-300">
+            <!-- Layanan (hidden on service pages, shown as read-only) -->
+            <input type="hidden" name="layanan" id="layananHidden" value="{serviceTitle || ''}" />
+            <div id="layananDisplay" class="{serviceTitle ? '' : 'hidden'}">
+                <label class="grid gap-2 text-sm font-bold text-neutral-700 dark:text-neutral-300">
+                    Layanan
+                    <div class="w-full border border-neutral-200 dark:border-neutral-600 rounded-xl px-3.5 py-3 text-sm sm:text-base font-medium bg-neutral-50 dark:bg-neutral-600 text-neutral-900 dark:text-neutral-100">
+                        {serviceTitle || 'Memuat...'}
+                    </div>
+                </label>
+            </div>
+            <label id="layananSelect" class:list={["grid gap-2 text-sm font-bold text-neutral-700 dark:text-neutral-300", { hidden: serviceTitle }]}>
                 Layanan <span class="text-red-600">*</span>
                 <select
                     name="layanan"
@@ -97,6 +112,22 @@ const gasUrl = import.meta.env.PUBLIC_GAS_WEBAPP_URL || '';
                     <option value="Deploy Laravel Tanpa Drama Server"
                         >Deploy Laravel</option
                     >
+                </select>
+            </label>
+
+            <!-- Paket -->
+            <label class="grid gap-2 text-sm font-bold text-neutral-700 dark:text-neutral-300">
+                Paket <span class="text-red-600">*</span>
+                <select
+                    name="paket"
+                    id="paket"
+                    required
+                    class="w-full border border-neutral-200 dark:border-neutral-600 rounded-xl px-3.5 py-3 text-sm sm:text-base font-medium bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100 outline-none transition-all duration-200 focus:border-neutral-900 dark:focus:border-neutral-400 focus:ring-4 focus:ring-neutral-900/10 dark:focus:ring-neutral-400/20"
+                >
+                    <option value="">Pilih paket</option>
+                    {packages.map((pkg) => (
+                        <option value={`${pkg.name} - ${pkg.price}`}>{pkg.name} - {pkg.price}</option>
+                    ))}
                 </select>
             </label>
 
@@ -134,41 +165,21 @@ const gasUrl = import.meta.env.PUBLIC_GAS_WEBAPP_URL || '';
                 ></textarea>
             </label>
 
-            <!-- Budget & Urgency -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <label class="grid gap-2 text-sm font-bold text-neutral-700 dark:text-neutral-300">
-                    Budget <span class="text-red-600">*</span>
-                    <select
-                        name="budget"
-                        required
-                        class="w-full border border-neutral-200 dark:border-neutral-600 rounded-xl px-3.5 py-3 text-sm sm:text-base font-medium bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100 outline-none transition-all duration-200 focus:border-neutral-900 dark:focus:border-neutral-400 focus:ring-4 focus:ring-neutral-900/10 dark:focus:ring-neutral-400/20"
-                    >
-                        <option value="">Pilih budget</option>
-                        <option value="< Rp1 juta">&lt; Rp1 juta</option>
-                        <option value="Rp1 juta - Rp3 juta"
-                            >Rp1 juta - Rp3 juta</option
-                        >
-                        <option value="Rp3 juta - Rp5 juta"
-                            >Rp3 juta - Rp5 juta</option
-                        >
-                        <option value="> Rp5 juta">&gt; Rp5 juta</option>
-                    </select>
-                </label>
-                <label class="grid gap-2 text-sm font-bold text-neutral-700 dark:text-neutral-300">
-                    Urgency <span class="text-red-600">*</span>
-                    <select
-                        name="urgency"
-                        required
-                        class="w-full border border-neutral-200 dark:border-neutral-600 rounded-xl px-3.5 py-3 text-sm sm:text-base font-medium bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100 outline-none transition-all duration-200 focus:border-neutral-900 dark:focus:border-neutral-400 focus:ring-4 focus:ring-neutral-900/10 dark:focus:ring-neutral-400/20"
-                    >
-                        <option value="">Pilih urgency</option>
-                        <option value="Santai">Santai</option>
-                        <option value="Minggu ini">Minggu ini</option>
-                        <option value="Secepatnya">Secepatnya</option>
-                        <option value="Emergency">Emergency</option>
-                    </select>
-                </label>
-            </div>
+            <!-- Urgency -->
+            <label class="grid gap-2 text-sm font-bold text-neutral-700 dark:text-neutral-300">
+                Urgency <span class="text-red-600">*</span>
+                <select
+                    name="urgency"
+                    required
+                    class="w-full border border-neutral-200 dark:border-neutral-600 rounded-xl px-3.5 py-3 text-sm sm:text-base font-medium bg-white dark:bg-neutral-700 text-neutral-900 dark:text-neutral-100 outline-none transition-all duration-200 focus:border-neutral-900 dark:focus:border-neutral-400 focus:ring-4 focus:ring-neutral-900/10 dark:focus:ring-neutral-400/20"
+                >
+                    <option value="">Pilih urgency</option>
+                    <option value="Santai">Santai</option>
+                    <option value="Minggu ini">Minggu ini</option>
+                    <option value="Secepatnya">Secepatnya</option>
+                    <option value="Emergency">Emergency</option>
+                </select>
+            </label>
 
             <!-- Conditional: n8n -->
             <div
