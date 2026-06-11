@@ -87,7 +87,6 @@ const services = defineCollection({
     license: reference("licenses").optional(),
     icon: z.string().optional(),
     isLandingPage: z.boolean().default(false),
-    whatsappNumber: z.string().optional(),
     ctaText: z.string().optional(),
     price: z.string().optional(),
     showMetadata: z.boolean().default(false),

@@ -2,6 +2,7 @@ export const SITE_SETTINGS = {
   title: "Ujang Sopiyan",
   description: "Web Developer dengan pengalaman 3 tahun dalam pengembangan web.",
   owner: "Ujang Sopiyan",
+  whatsappNumber: "6282321566306",
   ogImages:
     "https://res.cloudinary.com/dellp9a4z/image/upload/v1756758385/og-home_ejuqq8.png",
   socials: [

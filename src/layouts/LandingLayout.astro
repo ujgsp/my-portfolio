@@ -10,12 +10,16 @@ interface Props {
     title: string;
     description?: string;
     ogImage?: string;
+    price?: string;
+    tags?: string[];
 }
 
 const {
     title = SITE_SETTINGS.title,
     description = SITE_SETTINGS.description,
     ogImage = SITE_SETTINGS.ogImages,
+    price,
+    tags,
 } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
@@ -87,6 +91,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
                 image: ogImage
                     ? new URL(ogImage, Astro.site || Astro.url).toString()
                     : undefined,
+                areaServed: "ID",
+                serviceType: tags?.[0] || "Professional Service",
+                ...(price && {
+                    offers: {
+                        "@type": "Offer",
+                        price: price.replace(/[^0-9]/g, ''),
+                        priceCurrency: "IDR",
+                    }
+                })
             })}
         />
 

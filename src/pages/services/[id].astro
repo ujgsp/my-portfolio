@@ -7,7 +7,9 @@ import OptimizedImage from "../../components/ui/OptimizedImage.astro";
 import Prose from "../../components/content/Prose.astro";
 import PostMeta from "../../components/content/PostMeta.astro";
 import LeadFunnelForm from "../../components/ui/LeadFunnelForm.astro";
+import WhatsappCTA from "../../components/ui/WhatsappCTA.astro";
 import { attachMeta } from "../../utils/meta";
+import { SITE_SETTINGS } from "../../site.config";
 
 export async function getStaticPaths() {
     const services = await getCollection("services", ({ data }) => !data.draft);
@@ -28,6 +30,8 @@ const { Content } = await render(service);
             title={service.data.title} 
             description={service.data.description}
             ogImage={service.data.image.src}
+            price={service.data.price}
+            tags={service.data.tags}
         >
             <article class="mx-auto max-w-3xl px-4 py-8 md:py-12 sm:px-6 lg:px-8">
                 {service.data.showMetadata && <PostMeta entry={service} />}
@@ -55,6 +59,16 @@ const { Content } = await render(service);
                 
                 <div class="mt-12 md:mt-16">
                     <LeadFunnelForm serviceTitle={service.data.title} />
+                    
+                    {SITE_SETTINGS.whatsappNumber && (
+                        <div class="mt-8 text-center">
+                            <WhatsappCTA 
+                                number={SITE_SETTINGS.whatsappNumber} 
+                                message={`Halo, saya tertarik dengan layanan '${service.data.title}'`} 
+                                text="Chat via WhatsApp"
+                            />
+                        </div>
+                    )}
                 </div>
             </article>
         </LandingLayout>

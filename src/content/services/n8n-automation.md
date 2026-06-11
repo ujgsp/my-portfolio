@@ -3,11 +3,9 @@ title: "Automasi n8n untuk Operasional"
 description: "Hubungkan antar aplikasi bisnis Anda secara otomatis menggunakan n8n tanpa perlu coding rumit."
 pubDate: 2024-05-17
 image: { src: "/images/services/n8n-automation.png", alt: "Automasi n8n" }
-license: ""
 tags: ["n8n", "Automation", "Workflow"]
 icon: "lucide:bot"
 isLandingPage: true
-whatsappNumber: "6282321566306"
 ctaText: "Mulai Automasi Bisnis"
 price: "Rp 1.750.000"
 ---
